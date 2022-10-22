@@ -1,8 +1,17 @@
 import 'package:bmi_caculator/pages/bmi_caculate.dart';
+import 'package:bmi_caculator/providers/bmi_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => BmiProvider(),),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,5 +30,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
